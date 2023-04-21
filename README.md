@@ -23,3 +23,6 @@ Printf is a group project assignment of two, this project is aimed towards cloni
 5. What is va_end?
 	> performs cleanup for an ap object initialized by a call to va_start or va_copy
   
+<p align="center">  
+<img src ="https://assets.imaginablefutures.com/media/images/ALX_Logo.max-200x150.png">
+</p>
