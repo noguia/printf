@@ -50,7 +50,7 @@ int _printf(const char *format, ...)
 		else
 		{
 			i++;
-			count += do_printf(format[i], args);
+			count += _printf(format[i], args);
 		}
 		i++;
 	}
