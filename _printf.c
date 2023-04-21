@@ -1,60 +1,50 @@
 #include "main.h"
 
-/* by noguia && smaail-k */
-
-/**
- *_printf - print character
- *@format:  refers to the process of controlling
- *Return: always return 0
- */
-
-int check(va_list list, char c)
+void	check_char(va_list list, char c, int *len, int *i)
 {
 	if (c == 'c')
-		return (_putchar(va_arg(list, int)));
-	else if (c == 's')
-		return (_putstr(va_arg(list, char *)));
+		*len += put_char(va_arg(list, int));
 	else if (c == 'd' || c == 'i')
-		return (_putnbr(va_arg(list, int)));
-	else if (c == 'b')
-		return (_tobinary(va_arg(list, long)));
+		*len += put_number(va_arg(list, int));
+	else if (c == 'u')
+		*len += put_number_u(va_arg(list, unsigned int));
+	else if (c == 's')
+		*len += put_string(va_arg(list, char *));
 	else if (c == 'x')
-		return (_hexa(va_arg(list, unsigned int), "0123456789abcdef"));
+		*len += putnbr_base(va_arg(list, unsigned int), "0123456789abcdef");
 	else if (c == 'X')
-		return (_hexa(va_arg(list, unsigned int), "0123456789ABCDEF"));
+		*len += putnbr_base(va_arg(list, unsigned int), "0123456789ABCDEF");
 	else if (c == 'p')
 	{
-		_putstr("0x");
-		return (_hexa(va_arg(list, unsigned int), "0123456789abcdef") + 2);
+		*len += put_string("0x");
+		*len += putnbr_base(va_arg(list, unsigned long), "0123456789abcdef");
 	}
-	else if (c == 'u')
-		return (_putunbr(va_arg(list, int)));
-	else if (c == 'o')
-		return (_octal(va_arg(list, int)));
-	return (0);
+	else if (c == '%')
+		*len += put_char('%');
+	else
+		(*i)--;
 }
 
-int _printf(const char *format, ...)
+int	_printf(const char *str, ...)
 {
-	int			i;
-	va_list		args;
-	int			count;
+	va_list	list;
+	int		i;
+	int		len;
 
 	i = 0;
-	count = 0;
-	va_start(args, format);
-	while (format[i])
+	len = 0;
+	va_start(list, str);
+	while (str[i])
 	{
-		if (format[i] != '%')
-			count += _putchar(format[i]);
-		else
+		if (str[i] == '%')
 		{
 			i++;
-			count += _printf(format[i], args);
+			check_char(list, str[i], &len, &i);
 		}
+		else
+			len += put_char(str[i]);
 		i++;
 	}
-	va_end(args);
-	return (count);
+	va_end(list);
+	return (len);
 }
-
