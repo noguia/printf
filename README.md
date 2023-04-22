@@ -34,6 +34,6 @@ Printf is a group project assignment of two, this project is aimed towards cloni
 - if specifier is unknown -> output error
 - end loop -> output remaining text -> end
 
-	<p align="center">  
+<p align="center">  
 <img src ="https://assets.imaginablefutures.com/media/images/ALX_Logo.max-200x150.png">
 </p>
