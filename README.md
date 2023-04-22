@@ -23,16 +23,16 @@ Printf is a group project assignment of two, this project is aimed towards cloni
 5. What is va_end?
 	> performs cleanup for an ap object initialized by a call to va_start or va_copy
 
-  - To create our custom printf function, We need to plan out how it will work. We can create a flowchart to help us visualize the logic of the function. Here is an example of a simple flowchart for printf:
+ ### To create our custom printf function, We need to plan out how it will work. We can create a flowchart to help us visualize the logic of the function. Here is an example of a simple flowchart for printf:
 
-> start -> read format string -> while format string not empty ->
-> parse next format specifier -> output text before specifier ->
-> if specifier is %d -> output decimal number
-> if specifier is %s -> output string
-> if specifier is %c -> output character
-> if specifier is %% -> output %
-> if specifier is unknown -> output error
-> end loop -> output remaining text -> end
+- start -> read format string -> while format string not empty ->
+- parse next format specifier -> output text before specifier ->
+- if specifier is %d -> output decimal number
+- if specifier is %s -> output string
+- if specifier is %c -> output character
+- if specifier is %% -> output %
+- if specifier is unknown -> output error
+- end loop -> output remaining text -> end
 
 	<p align="center">  
 <img src ="https://assets.imaginablefutures.com/media/images/ALX_Logo.max-200x150.png">
