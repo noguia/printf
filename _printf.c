@@ -1,50 +1,52 @@
 #include "main.h"
 
-void	check_char(va_list list, char c, int *len, int *i)
-{
-	if (c == 'c')
-		*len += put_char(va_arg(list, int));
-	else if (c == 'd' || c == 'i')
-		*len += put_number(va_arg(list, int));
-	else if (c == 'u')
-		*len += put_number_u(va_arg(list, unsigned int));
-	else if (c == 's')
-		*len += put_string(va_arg(list, char *));
-	else if (c == 'x')
-		*len += putnbr_base(va_arg(list, unsigned int), "0123456789abcdef");
-	else if (c == 'X')
-		*len += putnbr_base(va_arg(list, unsigned int), "0123456789ABCDEF");
-	else if (c == 'p')
-	{
-		*len += put_string("0x");
-		*len += putnbr_base(va_arg(list, unsigned long), "0123456789abcdef");
-	}
-	else if (c == '%')
-		*len += put_char('%');
-	else
-		(*i)--;
-}
+#include <stdarg.h>
+#include <string.h>
+#include <unistd.h>
 
-int	_printf(const char *str, ...)
-{
-	va_list	list;
-	int		i;
-	int		len;
+/** by noguia && smaail-k */
 
-	i = 0;
-	len = 0;
-	va_start(list, str);
-	while (str[i])
+/**
+ * _printf - implementation of printf from scratch
+ * @format: string to format
+ * Return: count of carachters printed
+ */
+int _printf(const char *format, ...)
+{
+	int i =0 , j = 0;
+	char *str;
+	va_list args;
+
+	va_start(args, format);
+	while (format && format[i])
 	{
-		if (str[i] == '%')
+		if (format[i] == '%')
 		{
+			switch (format[i + 1])
+			{
+			case 'c':
+				_putchar((char)va_arg(args, int));
+				j++;
+				break;
+			case 's':
+				str = va_arg(args, char *);
+				write(1, str, strlen(str));
+				j = j + strlen(str);
+				break;
+			case '%':
+				_putchar('%');
+				j++;
+				break;
+			}
 			i++;
-			check_char(list, str[i], &len, &i);
 		}
 		else
-			len += put_char(str[i]);
+		{
+			_putchar(format[i]);
+			j++;
+		}
 		i++;
 	}
-	va_end(list);
-	return (len);
+	va_end(args);
+	return (j);
 }
