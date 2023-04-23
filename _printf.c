@@ -1,52 +1,52 @@
 #include "main.h"
 
-#include <stdarg.h>
-#include <string.h>
-#include <unistd.h>
-
-/** by noguia && smaail-k */
+/** by brahim */
 
 /**
- * _printf - implementation of printf from scratch
- * @format: string to format
- * Return: count of carachters printed
+ * _printf - provides an implementation
+ * @format: the function signature
+ * Return: return 0
  */
+
 int _printf(const char *format, ...)
 {
-	int i = 0, j = 0;
-	char *str;
 	va_list args;
+	int count = 0;
 
 	va_start(args, format);
-	while (format && format[i])
+	while (*format)
 	{
-		if (format[i] == '%')
+		if (*format == '%')
 		{
-			switch (format[i + 1])
+			format++;
+			switch (*format)
 			{
 			case 'c':
-				_putchar((char)va_arg(args, int));
-				j++;
+				count += _handlechar(args);
 				break;
 			case 's':
-				str = va_arg(args, char *);
-				write(1, str, strlen(str));
-				j = j + strlen(str);
+				count += _handlestr(args);
 				break;
 			case '%':
-				_putchar('%');
-				j++;
+				count += _putchar('%');
+				break;
+			case 'd':
+			case 'i':
+				count += _handleint(args);
+				break;
+			case 'b':
+				count += _handlenbr(args);
+				break;
+			default:
+				count += _putchar('%');
+				count += _putchar(*format);
 				break;
 			}
-			i++;
 		}
 		else
-		{
-			_putchar(format[i]);
-			j++;
-		}
-		i++;
+			count += _putchar(*format);
+		format++;
 	}
 	va_end(args);
-	return (j);
+	return (count);
 }
