@@ -8,6 +8,8 @@
 Printf is a group project assignment of two, this project is aimed towards cloning the printf function in c programming, the project is in stages and each stage define and adds more features to our custom printf. The custom function will be named _printf. Following below are the names of the project contributors.
 > 1. [IBRAHIM OUHLIMA](https://github.com/noguia)
 > 2. [smaail -K](https://github.com/smaail-k)
+
+
  ## Notes
 
 1. What is Variadic Functions?
@@ -24,7 +26,24 @@ Printf is a group project assignment of two, this project is aimed towards cloni
 5. What is va_end?
 	> performs cleanup for an ap object initialized by a call to va_start or va_copy
 
- ### To create our custom printf function, We need to plan out how it will work. We can create a flowchart to help us visualize the logic of the function. Here is an example of a simple flowchart for printf:
+### Supported Format Specifiers
+The printf function supports a wide range of format specifiers that allow for the formatting of output in a variety of ways. Here are the format specifiers that are supported in this implementation of printf:
+
+`%d: for integers`<br>
+`%s: for strings`<br>
+`%f: for floats/doubles`<br>
+`%b: for binary`<br>
+`%u: for unsigned integers`<br>
+`%o: for octal numbers`<br>
+`%x: for hexadecimal numbers (lowercase)`<br>
+`%X: for hexadecimal numbers (uppercase)`<br>
+`%S: for non-printable characters`<br>
+`%p: for pointer addresses`<br>
+`%r: for reversed strings`<br>
+`%R: for rot13'ed strings`<br>
+ 
+ 
+### To create our custom printf function, We need to plan out how it will work. We can create a flowchart to help us visualize the logic of the function. Here is an example of a simple flowchart for printf:
 
 - start -> read format string -> while format string not empty ->
 - parse next format specifier -> output text before specifier ->
