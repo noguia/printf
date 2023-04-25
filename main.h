@@ -4,8 +4,9 @@
 #include <stdlib.h>
 #include <stdarg.h>
 
+/** group project : noguia& smaail-k */
+
 /**
- * Group project: noguia & smaail-k
  * struct flags - struct containing flags to "turn on"
  * when a flag specifier is passed to _printf()
  * @plus: flag for the '+' character

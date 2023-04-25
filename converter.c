@@ -1,7 +1,6 @@
 #include "main.h"
 
 /**
- * Group project: noguia & smaail-k
  * convert - converts number and base into string
  * @num: input number
  * @base: input base
