@@ -1,6 +1,6 @@
 #include "main.h"
 
-/** by noguia && smaail-k */
+/** ============== by noguia && smaail-k ============= */
 
 /**
  * handel_hex - prints a number in hexadecimal base,
