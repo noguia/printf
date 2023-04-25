@@ -1,4 +1,4 @@
-.TH _printf 1 "April 16, 2022" "version 1.0" "_printf man page"
+.TH _printf 1 "April 25, 2023" "_printf man page"
 .SH NAME
 _printf - format and print data
 .SH SYNOPSIS
