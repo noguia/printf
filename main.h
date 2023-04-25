@@ -41,7 +41,7 @@ int count_digit(int i);
 int	 handel_hex(va_list l, flags_t *f);
 int	 handel_hex_big(va_list l, flags_t *f);
 int	 _handelbinary(va_list l, flags_t *f);
-int	 handel_octal(va_list l, flags_t *f);
+int	 _handeloctal(va_list l, flags_t *f);
 
 /* converter */
 char *convert(unsigned long int num, int base, int lowercase);
