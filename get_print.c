@@ -13,20 +13,20 @@
 int (*_handelprint(char s))(va_list, flags_t *)
 {
 	ph func_arr[] = {
-		{'i', print_int},
-		{'s', print_string},
-		{'c', print_char},
-		{'d', print_int},
-		{'u', print_unsigned},
-		{'x', print_hex},
-		{'X', print_hex_big},
-		{'b', print_binary},
-		{'o', print_octal},
-		{'R', print_rot13},
-		{'r', print_rev},
-		{'S', print_bigS},
-		{'p', print_address},
-		{'%', print_percent}
+		{'i', _handelint},
+		{'s', _handelstring},
+		{'c', _handelchar},
+		{'d', _handelint},
+		{'u', _handelunsigned},
+		{'x', handel_hex},
+		{'X', handel_hex_big},
+		{'b', _handelbinary},
+		{'o', _handeloctal},
+		{'R', _handelrot13},
+		{'r', _handelrev},
+		{'S', _handelbigS},
+		{'p', _handeladdress},
+		{'%', _handelpercent}
 		};
 	int flags = 14;
 

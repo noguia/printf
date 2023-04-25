@@ -31,13 +31,13 @@ typedef struct printHandler
 	int (*f)(va_list ap, flags_t *f);
 } ph;
 
-/* print_nums */
+/* _handelnums */
 int print_int(va_list l, flags_t *f);
 void print_number(int n);
 int print_unsigned(va_list l, flags_t *f);
 int count_digit(int i);
 
-/* print_bases */
+/* _handelbases */
 int handel_hex(va_list l, flags_t *f);
 int handel_hex_big(va_list l, flags_t *f);
 int _handelbinary(va_list l, flags_t *f);
@@ -55,23 +55,23 @@ int (*get_print(char s))(va_list, flags_t *);
 /* get_flag */
 int get_flag(char s, flags_t *f);
 
-/* print_alpha */
-int print_string(va_list l, flags_t *f);
-int print_char(va_list l, flags_t *f);
+/* _handelalpha */
+int _handelstring(va_list l, flags_t *f);
+int _handelchar(va_list l, flags_t *f);
 
 /* write_funcs */
 int _putchar(char c);
 int _puts(char *str);
 
-/* print_custom */
-int print_rot13(va_list l, flags_t *f);
-int print_rev(va_list l, flags_t *f);
-int print_bigS(va_list l, flags_t *f);
+/* _handelcustom */
+int _handelrot13(va_list l, flags_t *f);
+int _handelrev(va_list l, flags_t *f);
+int _handelbigS(va_list l, flags_t *f);
 
-/* print_address */
-int print_address(va_list l, flags_t *f);
+/* _handeladdress */
+int _handeladdress(va_list l, flags_t *f);
 
-/* print_percent */
-int print_percent(va_list l, flags_t *f);
+/* _handelpercent */
+int _handelpercent(va_list l, flags_t *f);
 
 #endif
