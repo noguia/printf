@@ -1,7 +1,6 @@
 #include "main.h"
 
 /**
- * Group project: noguia & smaail-k
  * get_flag - turns on flags if _printf finds
  * a flag modifier in the format string
  * @s: character that holds the flag specifier
