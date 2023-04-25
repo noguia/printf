@@ -1,18 +1,15 @@
 #include "main.h"
+
 #include <limits.h>
 #include <stdio.h>
 
-/** Group project: noguia & smaail-k */
-
 /**
- * get_print - selects the right printing function
- * depending on the conversion specifier passed to _printf
- * @s: character that holds the conversion specifier
- * Description: the function loops through the structs array
- * func_arr[] to find a match between the specifier passed to _printf
- * and the first element of the struct, and then the approriate
- * printing function
- * Return: a pointer to the matching printing function
+ * _printf - produces output according to a format
+ * @format: format string containing the characters and the specifiers
+ * Description: this function will call the get_print() function that will
+ * determine which printing function to call depending on the conversion
+ * specifiers contained into fmt
+ * Return: length of the formatted output string
  */
 
 int _printf(const char *format, ...)
